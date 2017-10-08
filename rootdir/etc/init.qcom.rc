@@ -1059,7 +1059,7 @@ on boot
     write /proc/sys/kernel/printk "6 6 1 7"
 
     # Adaptive LMK
-    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
 
 # Allow usb charging to be disabled peristently
