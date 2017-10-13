@@ -9,7 +9,7 @@ on init
 
 on post-fs-data
 # FeliCa
-    exec /system/bin/sh /init.felica.sh
+    exec - root root -- /system/bin/sh /init.felica.sh
 
     mkdir /efs/FeliCaLock 0770 system system
     chown system system /efs/FeliCaLock/01
