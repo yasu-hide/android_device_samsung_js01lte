@@ -1,21 +1,12 @@
 #!/system/bin/sh
-
-#/sbin/setpropex ro.warranty_bit 0
-#/sbin/setpropex ro.emmc_checksum 0
-
-KBC_DATA_PATH=/data/media/0/kbc
-
-CMDLINE_FILE=$KBC_DATA_PATH/cmdline
-if [ -f $CMDLINE_FILE ]; then
-    FELICA_CMDLINE=`cat $CMDLINE_FILE`
-    echo "$FELICA_CMDLINE" > /proc/cmdline
-    exit 0
+if [ -r /data/media/0/kbc/cmdline ]; then
+    cat /data/media/0/kbc/cmdline > /proc/cmdline
+elif [ -r /data/media/0/kbc/felica_key ]; then
+    local ORIG_CMDLINE=`cat /proc/cmdline`
+    local FELICA_KEY=`head -1 /data/media/0/kbc/felica_key`
+    set -- $FELICA_KEY
+    local CORDON="cordon=$1"
+    local CONNIE="connie=$2"
+    echo -n "$CORDON $CONNIE $ORIG_CMDLINE" | sed -e 's/^ +//' > /proc/cmdline
 fi
-
-FELICA_KEY_FILE=$KBC_DATA_PATH/felica_key
-if [ -f $FELICA_KEY_FILE ]; then
-    FELICA_KEY=`cat $FELICA_KEY_FILE`
-    BASE_CMDLINE=`cat /proc/cmdline`
-    echo "cordon=$FELICA_KEY $BASE_CMDLINE" > /proc/cmdline
-    exit 0
-fi
+exit 0
