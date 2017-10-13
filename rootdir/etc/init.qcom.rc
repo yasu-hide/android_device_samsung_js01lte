@@ -126,7 +126,7 @@ on post-fs-data
     chmod 0660 /data/.psm.info
 
     # icd
-    exec icd_check
+    exec - root system -- icd_check
     chown system system /dev/icd
     chmod 0644 /dev/icd
     write /dev/icdr 0
