@@ -150,6 +150,26 @@ public class NativeNfcManager implements DeviceHost {
         return true;
     }
 
+    @Override
+    public void registerT3tIdentifier(byte [] t3tIdentifier) {
+        return;
+    }
+
+    @Override
+    public void deregisterT3tIdentifier(byte[] t3tIdentifier) {
+        return;
+    }
+
+    @Override
+    public void clearT3tIdentifiersCache() {
+        return;
+    }
+
+    @Override
+    public int getLfT3tMax() {
+        return 0;
+    }
+
     private native int nativeStartDiscover(byte b1, byte b2);
 
     @Override

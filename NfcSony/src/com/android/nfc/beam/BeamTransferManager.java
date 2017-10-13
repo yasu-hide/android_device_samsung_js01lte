@@ -44,6 +44,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
+import android.support.v4.content.FileProvider;
+
 /**
  * A BeamTransferManager object represents a set of files
  * that were received through NFC connection handover
@@ -251,7 +253,8 @@ public class BeamTransferManager implements Handler.Callback,
     }
 
     public boolean isRunning() {
-        if (mState != STATE_NEW && mState != STATE_IN_PROGRESS && mState != STATE_W4_NEXT_TRANSFER) {
+        if (mState != STATE_NEW && mState != STATE_IN_PROGRESS && mState != STATE_W4_NEXT_TRANSFER
+            && mState != STATE_CANCELLING) {
             return false;
         } else {
             return true;
@@ -326,7 +329,7 @@ public class BeamTransferManager implements Handler.Callback,
             notBuilder.setContentTitle(mContext.getString(R.string.beam_complete));
 
             if (mIncoming) {
-                notBuilder.setContentText(mContext.getString(R.string.beam_touch_to_view));
+                notBuilder.setContentText(mContext.getString(R.string.beam_tap_to_view));
                 Intent viewIntent = buildViewIntent();
                 PendingIntent contentIntent = PendingIntent.getActivity(
                         mContext, mTransferId, viewIntent, 0, null);
@@ -469,9 +472,11 @@ public class BeamTransferManager implements Handler.Callback,
         String filePath = mPaths.get(0);
         Uri mediaUri = mMediaUris.get(filePath);
         Uri uri =  mediaUri != null ? mediaUri :
-            Uri.parse(ContentResolver.SCHEME_FILE + "://" + filePath);
+            FileProvider.getUriForFile(mContext, "com.google.android.nfc.fileprovider",
+                    new File(filePath));
         viewIntent.setDataAndTypeAndNormalize(uri, mMimeTypes.get(filePath));
-        viewIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        viewIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         return viewIntent;
     }
 

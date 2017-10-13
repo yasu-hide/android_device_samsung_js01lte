@@ -3,24 +3,14 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Nfc مۇلازىمەت</string>
   <string name="nfcUserLabel">Nfc</string>
-  <!-- A notification description string informing the user that contact details were received over NFC [CHAR-LIMIT=64] -->
-  <string name="inbound_me_profile_title">NFC ئارقىلىق ئالاقەداش قوبۇللىدى</string>
-  <!-- A notification action string prompting the user to add contact details to the People application [CHAR-LIMIT=64] -->
-  <string name="inbound_me_profile_text">چېكىلسە بۇ كىشىنى ئالاقەداشقا قوشىدۇ.</string>
-  <!-- A notification description string asking the user to share their contact details over NFC [CHAR-LIMIT=64] -->
-  <string name="outbound_me_profile_title">NFC تەسىرلىشىش تامام</string>
-  <!-- A notification action string prompting the user to share their contact details over NFC [CHAR-LIMIT=64] -->
-  <string name="outbound_me_profile_text">چېكىپ بۇ كىشىگە ئالاقەداش ئۇچۇرىڭىزنى يوللىيالايسىز</string>
   <!-- Content description of the NFC enabled notification icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_nfc_enabled">NFC قوزغىتىلدى.</string>
-  <string name="touch">چېكىسلە يوللايدۇ</string>
   <string name="beam_progress">beam نى قوبۇللاۋاتىدۇ…</string>
   <string name="beam_outgoing">Beam بىلەن ئۇچۇر يوللاۋاتىدۇ…</string>
   <string name="beam_complete">Beam تامام</string>
   <string name="beam_failed">Beam تاماملانمىدى</string>
   <string name="beam_canceled">Beam دىن ۋاز كەچتى</string>
   <string name="cancel">ۋاز كەچ</string>
-  <string name="beam_touch_to_view">چېكىلسە كۆرسىتىدۇ</string>
   <string name="beam_handover_not_supported">قوبۇللايدىغان ئۈسكۈنە Beam ئارقىلىق چوڭ ھۆججەت يوللاشنى قوللىمايدۇ.</string>
   <string name="beam_try_again">ئىككى ئۈسكۈنىنى قايتا يېقىنلاشتۇرۇڭ</string>
   <!-- String referring to the device being connected when there is no name for the device -->
