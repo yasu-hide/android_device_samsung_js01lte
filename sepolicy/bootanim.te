@@ -1,0 +1,2 @@
+allow bootanim sysfs_gpu:dir search;
+allow bootanim sysfs_gpu:file rw_file_perms;
