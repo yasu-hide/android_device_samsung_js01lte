@@ -55,3 +55,18 @@
 
 # Thermal-Engine
 /system/bin/thermal-engine                              u:object_r:thermal-engine_exec:s0
+
+#Felica
+/dev/felica(.*)                                         u:object_r:felica_device:s0
+/efs/FeliCaLock(/.*)?                                   u:object_r:felica_efs_file:s0
+/system/bin/mfdp                                        u:object_r:mfdp_exec:s0
+/system/bin/mfsc                                        u:object_r:mfsc_exec:s0
+/sys/devices/msm_sdcc.1/mmc_host/mmc1/mmc1\:0001/cid    u:object_r:sysfs_sdcc_mmc:s0
+
+# SNFC
+/dev/ttyHSL1                                            u:object_r:felica_device:s0
+/dev/snfc(.*)                                           u:object_r:felica_device:s0
+/dev/uartcc                                             u:object_r:nfc_device:s0
+
+# Proc
+/proc/cmdline                                           u:object_r:proc:s0

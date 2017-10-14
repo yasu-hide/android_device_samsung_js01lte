@@ -1,0 +1,10 @@
+type mfsc, domain;
+type mfsc_exec, exec_type, file_type;
+init_daemon_domain(mfsc)
+
+allow mfsc self:process execmem;
+allow mfsc self:netlink_socket create_socket_perms;
+allow mfsc felica_device:chr_file create_file_perms;
+allow mfsc nfc_device:chr_file rw_file_perms;
+allow mfsc proc:file rw_file_perms;
+allow mfsc sysfs_sdcc_mmc:file rw_file_perms;

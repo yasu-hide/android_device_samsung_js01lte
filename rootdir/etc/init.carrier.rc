@@ -9,6 +9,7 @@ on init
 
 on post-fs-data
 # FeliCa
+    restorecon /proc/cmdline
     exec - root root -- /system/bin/sh /init.felica.sh
 
     mkdir /efs/FeliCaLock 0770 system system

@@ -1,0 +1,2 @@
+allow qti_init_shell media_rw_data_file:dir { write search };
+allow qti_init_shell media_rw_data_file:file { read open };
