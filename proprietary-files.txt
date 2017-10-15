@@ -254,6 +254,7 @@ vendor/lib/libmmcamera2_stats_modules.so
 vendor/lib/libmmcamera2_vpe_module.so
 vendor/lib/libmmcamera2_wnr_module.so
 vendor/lib/liboemcamera.so
+vendor/lib/liboemcrypto.so
 vendor/lib/libsensor1.so
 
 # Camera firmware
