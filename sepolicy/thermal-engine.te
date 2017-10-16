@@ -1,1 +1,3 @@
 allow thermal-engine self:capability chown;
+allow thermal-engine sysfs_gpu:dir search;
+allow thermal-engine sysfs_gpu:file read;
