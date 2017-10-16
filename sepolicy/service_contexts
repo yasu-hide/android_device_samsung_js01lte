@@ -1,1 +1,17 @@
 felica                                      u:object_r:nfc_service:s0
+bml_engine                                  u:object_r:oneseg_mw_service:s0
+broadcast.ATSCMHProcessObserver             u:object_r:oneseg_mw_service:s0
+ISDtvService.SDtvStackService               u:object_r:oneseg_mw_service:s0
+broadcast.OneSegDsmcc                       u:object_r:oneseg_mw_service:s0
+broadcast.OneSegDsmcc_ltn                   u:object_r:oneseg_mw_service:s0
+broadcast.OneSegGinga                       u:object_r:oneseg_mw_service:s0
+broadcast.OneSegMW                          u:object_r:oneseg_mw_service:s0
+broadcast.OneSegTsDemux_ltn                 u:object_r:oneseg_mw_service:s0
+smplayer.OneSegSMPlayer                     u:object_r:oneseg_mw_service:s0
+SMPlayer                                    u:object_r:oneseg_mw_service:s0
+stctl.service                               u:object_r:mmb_mw_service:s0
+stbml.service                               u:object_r:mmb_mw_service:s0
+strec.service                               u:object_r:mmb_mw_service:s0
+mmbfcmp4mw.player                           u:object_r:mmb_mw_service:s0
+fclicemwserver                              u:object_r:mmb_mw_service:s0
+streccm.service                             u:object_r:mmb_mw_service:s0

@@ -1,3 +1,4 @@
 type bluetooth_device, dev_type;
 type felica_device, dev_type, mlstrustedobject;
 type nfcfelica_device, dev_type, mlstrustedobject;
+type mmb_device, dev_type;

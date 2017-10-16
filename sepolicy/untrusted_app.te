@@ -11,3 +11,6 @@ allow untrusted_app vfat:file create_file_perms;
 # gpu
 allow untrusted_app sysfs_gpu:dir search;
 allow untrusted_app sysfs_gpu:file r_file_perms;
+# oneseg
+allow untrusted_app oneseg_data_file:file rw_file_perms;
+allow untrusted_app oneseg_mw_service:service_manager { find };

@@ -1,0 +1,72 @@
+type mmb_mw, domain, mlstrustedsubject;
+type mmb_mw_exec, exec_type, file_type;
+type mmb_mw_service, service_manager_type;
+init_daemon_domain(mmb_mw)
+
+binder_service(mmb_mw)
+binder_use(mmb_mw)
+
+allow mmb_mw mmb_data_file:dir create_dir_perms;
+allow mmb_mw mmb_data_file:file create_file_perms;
+allow mmb_mw random_device:chr_file r_file_perms;
+
+allow mmb_mw system_data_file:dir create_dir_perms;
+allow mmb_mw system_data_file:file r_file_perms;
+allow mmb_mw system_data_file:sock_file create_file_perms;
+
+allow mmb_mw device:sock_file write;
+allow mmb_mw rild:unix_stream_socket connectto;
+
+allow mmb_mw sdcard_type:dir create_dir_perms;
+allow mmb_mw sdcard_type:file create_file_perms;
+
+allow mmb_mw self:capability { dac_override net_raw net_admin setuid setgid };
+
+binder_call(mmb_mw,surfaceflinger)
+binder_call(mmb_mw,mmb_mw)
+binder_call(mmb_mw,mediaserver)
+
+allow mmb_mw self:udp_socket {create setopt bind write read shutdown name_bind node_bind};
+allow mmb_mw port:udp_socket { name_bind };
+allow mmb_mw node:udp_socket { node_bind };
+
+allow mmb_mw video_device:chr_file rw_file_perms;
+allow mmb_mw video_device:lnk_file r_file_perms;
+allow mmb_mw video_device:dir r_dir_perms;
+
+allow mmb_mw cgroup:dir create_dir_perms;
+allow mmb_mw audio_device:chr_file rw_file_perms;
+
+allow mmb_mw system_app:fd use;
+allow mmb_mw radio_data_file:file r_file_perms;
+allow mmb_mw radio_data_file:dir r_dir_perms;
+allow mmb_mw radio_data_file:dir create_dir_perms;
+allow mmb_mw radio_data_file:dir search;
+allow mmb_mw media_rw_data_file:dir r_dir_perms;
+allow mmb_mw media_rw_data_file:dir create_dir_perms;
+allow mmb_mw media_rw_data_file:file create_file_perms;
+allow mmb_mw media_rw_data_file:file w_file_perms;
+allow mmb_mw mmb_device:chr_file  rw_file_perms;
+allow mmb_mw drm_data_file:file r_file_perms;
+allow mmb_mw drm_data_file:dir create_dir_perms;
+allow mmb_mw drm_data_file:dir search;
+allow mmb_mw socket_device:sock_file w_file_perms;
+allow mmb_mw mpdecision:unix_stream_socket connectto;
+allow mmb_mw sysfs:file w_file_perms;
+allow mmb_mw rootfs:dir mounton;
+allow mmb_mw sdcard_type:dir mounton;
+allow mmb_mw self:capability { fowner chown fsetid };
+allow mmb_mw self:capability sys_admin;
+allow mmb_mw init:dir r_dir_perms;
+allow mmb_mw init:file r_file_perms;
+allow mmb_mw init:unix_stream_socket { read write };
+allow mmb_mw kernel:dir getattr;
+allow mmb_mw platform_app:dir r_dir_perms;
+
+allow mmb_mw mmb_mw_service:service_manager add;
+allow mmb_mw mediaserver_service:service_manager find;
+allow mmb_mw mmb_mw_service:service_manager find;
+allow mmb_mw system_file:file execmod;
+
+allow mmb_mw app_data_file:dir r_dir_perms;
+allow mmb_mw app_data_file:file { rw_file_perms setattr };

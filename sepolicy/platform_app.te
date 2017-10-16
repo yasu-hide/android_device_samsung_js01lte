@@ -8,3 +8,5 @@ allow platform_app vfat:dir create_dir_perms;
 allow platform_app vfat:file create_file_perms;
 allow platform_app sysfs_gpu:dir search;
 allow platform_app sysfs_gpu:file rw_file_perms;
+allow platform_app mmb_mw:unix_stream_socket connectto;
+allow platform_app oneseg_mw_service:service_manager find;

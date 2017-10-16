@@ -70,3 +70,8 @@
 
 # Proc
 /proc/cmdline                                           u:object_r:proc:s0
+
+# Oneseg
+/data/mmb(/.*)?                                         u:object_r:mmb_data_file:s0
+/system/bin/broadcastProcessObserver                    u:object_r:oneseg_mw_exec:s0
+/data/one-seg/debug.ini                                 u:object_r:oneseg_data_file:s0
