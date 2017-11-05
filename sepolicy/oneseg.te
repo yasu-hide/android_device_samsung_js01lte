@@ -1,4 +1,4 @@
-type oneseg_mw, domain, mlstrustedsubject;
+type oneseg_mw, domain, mlstrustedobject;
 type oneseg_mw_exec, exec_type, file_type;
 type oneseg_mw_service, service_manager_type;
 type oneseg_prop, property_type;
