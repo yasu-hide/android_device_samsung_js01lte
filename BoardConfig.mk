@@ -72,10 +72,6 @@ BOARD_HARDWARE_CLASS += device/samsung/js01lte/cmhw
 # Extended Filesystem Support
 TARGET_KERNEL_HAVE_EXFAT := true
 
-# GPS
-TARGET_NO_RPC := true
-USE_DEVICE_SPECIFIC_GPS := true
-
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
@@ -97,7 +93,8 @@ TARGET_POWERHAL_VARIANT := qcom
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/js01lte/power/power_ext.c
 
 # Radio
-BOARD_RIL_CLASS := ../../../device/samsung/js01lte/ril
+BOARD_PROVIDES_LIBRIL := true
+TARGET_RIL_VARIANT := caf
 
 #RECOVERY_VARIANT := twrp
 # Recovery
