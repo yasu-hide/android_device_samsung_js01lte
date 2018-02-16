@@ -1,0 +1,2 @@
+allow untrusted_app felica_device:chr_file rw_file_perms;
+allow untrusted_app nfcfelica_device:chr_file rw_file_perms;
