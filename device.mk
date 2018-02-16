@@ -128,7 +128,9 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk for felica
 PRODUCT_PACKAGES += \
-    FeliCaLock
+    FeliCaLock \
+    init.carrier.rc \
+    init.felica.sh
 
 # Thermal
 PRODUCT_COPY_FILES += \
