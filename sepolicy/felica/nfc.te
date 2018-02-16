@@ -1,0 +1,2 @@
+allow nfc system_file:file execmod;
+allow nfc felica_device:chr_file rw_file_perms;

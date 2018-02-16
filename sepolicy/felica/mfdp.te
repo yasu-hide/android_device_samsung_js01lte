@@ -1,0 +1,7 @@
+type mfdp, domain;
+type mfdp_exec, exec_type, file_type;
+init_daemon_domain(mfdp)
+
+allow mfdp self:process execmem;
+allow mfdp self:capability dac_override;
+allow mfdp felica_device:chr_file rw_file_perms;

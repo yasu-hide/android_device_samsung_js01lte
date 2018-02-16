@@ -1,0 +1,12 @@
+type felica_init, domain;
+type felica_init_exec, exec_type, file_type;
+type felica_init_data_file, data_file_type, file_type, mlstrustedobject;
+init_daemon_domain(felica_init)
+
+allow felica_init shell_exec:file { entrypoint rx_file_perms };
+allow felica_init rootfs:file r_file_perms;
+allow felica_init felica_init_data_file:file r_file_perms;
+allow felica_init media_rw_data_file:dir search;
+allow felica_init proc:file w_file_perms;
+allow felica_init { toolbox_exec vendor_toolbox_exec }:file rx_file_perms;
+allow felica_init self:capability { dac_override dac_read_search };
