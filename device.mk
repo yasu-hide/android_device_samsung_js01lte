@@ -45,6 +45,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/vendor/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/vendor/etc/permissions/handheld_core_hardware.xml
 
+# NFC Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/vendor/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/vendor/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/vendor/etc/permissions/com.nxp.mifare.xml
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
@@ -95,6 +101,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
+# NFC
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    NfcSony \
+    Tag
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/nfcee_access.xml:system/etc/nfcee_access.xml \
+    $(LOCAL_PATH)/configs/libnfc-brcm-20791b05.conf:system/vendor/etc/libnfc-brcm-20791b05.conf \
+    $(LOCAL_PATH)/configs/libnfc-brcm-20791b04.conf:system/vendor/etc/libnfc-brcm-20791b04.conf \
+    $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/vendor/etc/libnfc-brcm.conf \
+    $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/vendor/etc/libnfc-nxp.conf
+
 # Radio
 PRODUCT_PACKAGES += \
     libsecnativefeature \
@@ -106,6 +125,10 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.usb.rc \
     ueventd.qcom.rc
+
+# Ramdisk for felica
+PRODUCT_PACKAGES += \
+    FeliCaLock
 
 # Thermal
 PRODUCT_COPY_FILES += \
