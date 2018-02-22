@@ -125,6 +125,13 @@ PRODUCT_PACKAGES += \
     NfcSony \
     Tag
 
+# Smartcard
+PRODUCT_PACKAGES += \
+    SmartcardService \
+    org.simalliance.openmobileapi \
+    org.simalliance.openmobileapi.xml
+PRODUCT_BOOT_JARS += org.simalliance.openmobileapi
+
 # Radio
 PRODUCT_PACKAGES += \
     libsecnativefeature
