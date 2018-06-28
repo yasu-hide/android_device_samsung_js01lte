@@ -130,7 +130,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FeliCaLock \
     init.carrier.rc \
-    init.felica.sh
+    felicakey
 
 # Thermal
 PRODUCT_COPY_FILES += \
