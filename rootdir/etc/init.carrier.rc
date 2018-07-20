@@ -1,0 +1,14 @@
+# Copyright (C) 2012 The Android Open Source Project
+#
+# IMPORTANT: Do not create world writable files or directories.
+# This is a common source of Android security bugs.
+#
+
+on init
+    export EXTERNAL_STORAGE_DOCOMO /storage/extSdCard
+
+service mobileTV /system/bin/broadcastProcessObserver
+    class main
+    user system
+    group system radio audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw sdcard_r shell mmb
+    seclabel u:r:oneseg_mw:s0
