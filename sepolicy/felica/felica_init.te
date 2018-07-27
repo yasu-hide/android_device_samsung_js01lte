@@ -1,0 +1,6 @@
+type felica_init, domain;
+type felica_init_exec, exec_type, file_type;
+init_daemon_domain(felica_init)
+
+allow felica_init proc:file { read getattr w_file_perms };
+allow felica_init self:capability { dac_override dac_read_search };

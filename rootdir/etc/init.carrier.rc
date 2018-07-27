@@ -1,0 +1,41 @@
+# Copyright (C) 2012 The Android Open Source Project
+#
+# IMPORTANT: Do not create world writable files or directories.
+# This is a common source of Android security bugs.
+#
+
+on init
+    export EXTERNAL_STORAGE_DOCOMO /storage/extSdCard
+
+on post-fs-data
+# FeliCa
+    restorecon /proc/cmdline
+    exec u:r:felica_init:s0 root root -- /system/vendor/bin/felicakey
+
+    mkdir /efs/FeliCaLock 0770 system system
+    chown system system /efs/FeliCaLock/01
+    chmod 0660 /efs/FeliCaLock/01
+    chown system system /efs/FeliCaLock/02
+    chmod 0660 /efs/FeliCaLock/02
+
+# Japan Add NFC Type Setting(Osaifu.cfg)
+    mkdir /data/misc/osaifu 0755 system system
+    chmod 644 /data/misc/osaifu/osaifu.cfg
+    chown system system /data/misc/osaifu/osaifu.cfg    
+
+# Fingerprint
+    mkdir /dev/validity 0770 system system
+
+service mfsc /system/bin/mfsc
+    class core
+    user root
+    group system felicalock nfc
+    seclabel u:r:mfsc:s0
+    oneshot
+
+service mfdp /system/bin/mfdp
+    class core
+    user root
+    group system felicalock nfc
+    seclabel u:r:mfdp:s0
+    oneshot
