@@ -93,6 +93,11 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     ueventd.qcom.rc
 
+# Oneseg
+PRODUCT_PACKAGES += \
+    libshim_oneseg_video \
+    libshim_oneseg_audio
+
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/vendor/etc/thermal-engine-8974.conf
