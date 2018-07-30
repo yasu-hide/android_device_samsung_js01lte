@@ -77,7 +77,9 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib/hw/camera.vendor.msm8974.so|libshim_camera.so \
     /system/vendor/lib/libSDtvVout.so|libshim_oneseg_video.so \
-    /system/vendor/lib/libSDtvAout.so|libshim_oneseg_audio.so
+    /system/vendor/lib/libSDtvAout.so|libshim_oneseg_audio.so \
+    /system/vendor/lib/libBMLJNI.so|libshim_oneseg_skia.so \
+    /system/vendor/lib/libBMLJNI.so|libshim_oneseg_utils.so
 
 # LineageHW
 BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/lineagehw
