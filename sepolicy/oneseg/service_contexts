@@ -4,6 +4,7 @@ broadcast.ATSCMHProcessObserver             u:object_r:oneseg_mw_service:s0
 ISDtvService.SDtvStackService               u:object_r:oneseg_mw_service:s0
 broadcast.OneSegDsmcc                       u:object_r:oneseg_mw_service:s0
 broadcast.OneSegDsmcc_ltn                   u:object_r:oneseg_mw_service:s0
+broadcast.OneSegDsmccClient                 u:object_r:oneseg_mw_service:s0
 broadcast.OneSegGinga                       u:object_r:oneseg_mw_service:s0
 broadcast.OneSegMW                          u:object_r:oneseg_mw_service:s0
 broadcast.OneSegTsDemux_ltn                 u:object_r:oneseg_mw_service:s0
