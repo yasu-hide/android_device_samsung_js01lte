@@ -1,5 +1,5 @@
 # for oneseg
-/system/bin/broadcastProcessObserver	u:object_r:oneseg_mw_exec:s0
+/system/vendor/bin/broadcastProcessObserver	u:object_r:oneseg_mw_exec:s0
 /system/bin/BMLEngineServer	u:object_r:oneseg_mw_exec:s0
 /system/bin/OneSegDsmcc	u:object_r:oneseg_mw_exec:s0
 /system/bin/SDtvService	u:object_r:oneseg_mw_exec:s0
