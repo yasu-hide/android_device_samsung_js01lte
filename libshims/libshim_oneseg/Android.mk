@@ -50,3 +50,28 @@ LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_SHARED_LIBRARIES := libbinder
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libshim_oneseg_jpeg
+LOCAL_SRC_FILES := \
+    jpeg/jdhuff.c \
+    jpeg/jdapistd.c \
+    jpeg/jdtrans.c \
+    jpeg/jdinput.c
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_SHARED_LIBRARIES := libjpeg
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libshim_oneseg_png
+LOCAL_SRC_FILES := \
+    png/pngrio.c \
+    png/pngread.c \
+    png/pngrutil.c
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_SHARED_LIBRARIES := libpng libz
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
