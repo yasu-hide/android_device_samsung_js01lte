@@ -12,3 +12,36 @@ service mobileTV /system/vendor/bin/broadcastProcessObserver
     user system
     group system radio audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw sdcard_r shell mmb
     seclabel u:r:oneseg_mw:s0
+# Tmm Add Start
+service mmbcacasdrmmw /system/vendor/bin/MmbCaCasDrmMw
+    class main
+    socket MmbCaCasDrmMw stream 666
+    user casdrm
+    group mmb system radio sdcard_r shell inet net_raw media media_rw mmbisv
+    seclabel u:r:mmb_mw:s0
+service mmbfcctlmw /system/vendor/bin/MmbFcCtlMw
+    class main
+    user system
+    group mmb system log mount sdcard_rw media media_rw sdcard_r shell net_raw mmbisv camera
+    seclabel u:r:mmb_mw:s0
+service mmbstservice /system/vendor/bin/MmbStCtlMwService
+    class main
+    user system
+    group mmb system radio audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw sdcard_r shell media media_rw mmbisv
+    seclabel u:r:mmb_mw:s0
+service mmbmp4 /system/vendor/bin/MmbFcMp4MwServer
+    class main
+    user system
+    group mmb sdcard_r shell media media_rw mmbisv camera
+    seclabel u:r:mmb_mw:s0
+service mmbfclicemw /system/vendor/bin/MmbFcLiceMwServer
+    class main
+    user system
+    group mmb sdcard_rw inet media media_rw mmbisv
+    seclabel u:r:mmb_mw:s0
+service mmbcmservice /system/vendor/bin/MmbStRecCmMwService
+    class late_start
+    user system
+    group mmb system log mount net_raw sdcard_rw sdcard_r shell media media_rw mmbisv
+    seclabel u:r:mmb_mw:s0
+# Tmm Add End
