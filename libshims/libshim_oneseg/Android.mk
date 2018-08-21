@@ -19,15 +19,6 @@ LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := libshim_oneseg_icu
-LOCAL_SRC_FILES := icu/icu53.c
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_SHARED_LIBRARIES := libicuuc libicui18n
-LOCAL_PROPRIETARY_MODULE := true
-include $(BUILD_SHARED_LIBRARY)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE := libshim_oneseg_skia
 LOCAL_SRC_FILES := \
     skia/SkBitmap.cpp \

@@ -82,7 +82,6 @@ TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib/libBMLJNI.so|libshim_oneseg_utils.so \
     /system/vendor/lib/libMmbSfDplMp.so|libshim_oneseg_video.so \
     /system/vendor/lib/libMmbSfDplMp.so|libshim_oneseg_audio.so \
-    /system/vendor/lib/libMmbPoXmlMp.so|libshim_oneseg_icu.so \
     /system/vendor/lib/libMmbFcMp4MwPlayerService.so|libshim_cutils_atomic.so \
     /system/vendor/lib/libMmbCaKyMngMw.so|libshim_oneseg_binder.so
 
