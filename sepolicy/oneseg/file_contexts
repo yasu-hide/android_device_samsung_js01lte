@@ -4,4 +4,13 @@
 /system/bin/OneSegDsmcc	u:object_r:oneseg_mw_exec:s0
 /system/bin/SDtvService	u:object_r:oneseg_mw_exec:s0
 
+#TMM
+/system/vendor/bin/MmbCaCasDrmMw	u:object_r:mmb_mw_exec:s0
+/system/vendor/bin/MmbFcCtlMw	u:object_r:mmb_mw_exec:s0
+/system/vendor/bin/MmbStCtlMwService	u:object_r:mmb_mw_exec:s0
+/system/vendor/bin/MmbFcMp4MwServer	u:object_r:mmb_mw_exec:s0
+/system/vendor/bin/MmbFcLiceMwServer	u:object_r:mmb_mw_exec:s0
+/system/vendor/bin/MmbStRecCmMwService	u:object_r:mmb_mw_exec:s0
+
 /data/one-seg(/.*)?	u:object_r:oneseg_data_file:s0
+/data/mmb(/.*)?		u:object_r:mmb_data_file:s0
