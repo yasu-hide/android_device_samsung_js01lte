@@ -10,6 +10,7 @@ type oneseg_prop, property_type;
 init_daemon_domain(oneseg_mw)
 
 #binder add
+binder_call(platform_app, oneseg_mw)
 binder_call(oneseg_mw, mediaserver)
 binder_call(oneseg_mw, oneseg_mw)
 binder_call(oneseg_mw, surfaceflinger)
@@ -19,6 +20,13 @@ binder_service(oneseg_mw)
 binder_use(oneseg_mw)
 
 #allow list
+allow platform_app media_rw_data_file:file w_file_perms;
+allow platform_app sdcard_type:file w_file_perms;
+allow platform_app oneseg_data_file:dir create_dir_perms;
+allow platform_app oneseg_data_file:file create_file_perms;
+allow platform_app oneseg_data_file:unix_stream_socket connectto;
+allow platform_app oneseg_mw:unix_stream_socket connectto;
+allow platform_app unlabeled:filesystem getattr;
 
 ########## self and domain_type
 allow oneseg_mw init:unix_stream_socket { read write };

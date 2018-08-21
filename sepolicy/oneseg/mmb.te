@@ -23,6 +23,23 @@ allow platform_app graphicsstats_service:service_manager find;
 allow platform_app mmb_data_file:sock_file write;
 allow platform_app mmb_mw_service:service_manager find;
 
+#binder add
+binder_call(platform_app, mmb_mw)
+
+#allow list
+allow platform_app mmb_data_file:dir create_dir_perms;
+allow platform_app mmb_data_file:file create_file_perms;
+allow platform_app mmb_data_file:unix_stream_socket connectto;
+allow platform_app mmb_data_file:file x_file_perms;
+allow platform_app mmb_mw:unix_stream_socket connectto;
+allow platform_app drm_data_file:file r_file_perms;
+allow platform_app app_data_file:file execute;
+allow platform_app app_data_file:dir search;
+allow platform_app activity_service:service_manager find;
+allow platform_app graphicsstats_service:service_manager find;
+allow platform_app mmb_data_file:sock_file write;
+allow platform_app mmb_mw_service:service_manager find;
+
 ######################################################################
 # mmbi native apps policy
 
