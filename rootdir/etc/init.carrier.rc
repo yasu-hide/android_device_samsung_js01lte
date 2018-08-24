@@ -7,6 +7,46 @@
 on init
     export EXTERNAL_STORAGE_DOCOMO /storage/extSdCard
 
+on post-fs-data
+# JPN: For MobileTV [ISDBT] \android\device\samsung\hltejs01dcm\init.hltejs01dcm.rc
+    mkdir /data/one-seg 0775 system system
+    chown system system /data/one-seg
+    chmod 0775 /data/one-seg
+
+# Tmm Add Start
+    mkdir /data/mmb
+    mkdir /data/mmb/MmbCaCasDrmMw 0700 casdrm sdcard_rw
+    mkdir /data/mmb/MmbFcCtlMw 0700 system sdcard_rw
+    mkdir /data/mmb/MmbFcCtlMw/dic 0700 system sdcard_rw
+    mkdir /data/mmb/MmbStCtlMw 0700 system sdcard_rw
+    mkdir /data/mmb/MmbFcMp4Mw 0700 system sdcard_rw
+    mkdir /data/mmb/common 0770 system sdcard_rw
+    mkdir /data/mmb/common/MmbFcCtlMw 0700 system sdcard_rw
+    chown system mmb /data/mmb
+
+    mkdir /data/mmb/common/fcctl 0775 system sdcard_rw
+    chown system sdcard_rw /data/mmb/common/fcctl
+
+    mkdir /data/mmb/common/streccm 0775 system sdcard_rw
+    chown system sdcard_rw /data/mmb/common/streccm
+
+    chmod 775 /data/mmb
+    mkdir /data/mmb/MmbFcCtlMwMnt
+    chown system sdcard_rw /data/mmb/MmbFcCtlMwMnt
+    chmod 755 /data/mmb/MmbFcCtlMwMnt
+
+    mkdir /data/data/.drm/.sec_sctime
+    chmod 775 /data/data/.drm/.sec_sctime
+    chown system system /data/data/.drm/.sec_sctime
+
+    chmod 664 /dev/hw_random
+    chmod 640 /dev/tzic
+    chown system mmb /dev/tzic
+
+    chmod 0770 /data/mmb/common/manifest
+    chown root mmb /data/mmb/common/manifest
+# Tmm Add End
+
 service mobileTV /system/vendor/bin/broadcastProcessObserver
     class main
     user system

@@ -14,3 +14,4 @@
 
 /data/one-seg(/.*)?	u:object_r:oneseg_data_file:s0
 /data/mmb(/.*)?		u:object_r:mmb_data_file:s0
+/data/data/\.drm(/.*)?	u:object_r:drm_data_file:s0
