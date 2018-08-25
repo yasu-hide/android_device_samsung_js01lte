@@ -29,13 +29,13 @@ on post-fs-data
 service mfsc /system/bin/mfsc
     class core
     user root
-    group system felicalock nfc
+    group system nfc
     seclabel u:r:mfsc:s0
     oneshot
 
 service mfdp /system/bin/mfdp
     class core
     user root
-    group system felicalock nfc
+    group system nfc
     seclabel u:r:mfdp:s0
     oneshot
