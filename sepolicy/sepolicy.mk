@@ -17,4 +17,5 @@
 # Board specific SELinux policy variable definitions
 BOARD_SEPOLICY_DIRS += \
     device/samsung/js01lte/sepolicy/common \
-    device/samsung/js01lte/sepolicy/felica
+    device/samsung/js01lte/sepolicy/felica \
+    device/samsung/js01lte/sepolicy/oneseg

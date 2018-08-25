@@ -259,6 +259,8 @@ v/ppp                  0660   radio      vpn
 /sys/devices/f9927000.i2c/i2c-5/5-0024/iio:device* enable                               0660   system     radio
 /sys/devices/f9927000.i2c/i2c-5/5-0024/iio:device* in_grip0_input                       0660   system     radio
 
+/dev/mmtuneri2c       0660    system    system
+/dev/mmtunerspi       0660    system    system
 
 /sys/devices/f9927000.i2c/i2c-5/5-0039/iio:device*                                      0664   system     radio
 /sys/devices/f9927000.i2c/i2c-5/5-0039/iio:device* enable                               0660   system     radio

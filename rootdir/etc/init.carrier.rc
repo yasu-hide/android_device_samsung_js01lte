@@ -26,16 +26,80 @@ on post-fs-data
 # Fingerprint
     mkdir /dev/validity 0770 system system
 
+# JPN: For MobileTV [ISDBT] \android\device\samsung\hltejs01dcm\init.hltejs01dcm.rc
+    mkdir /data/one-seg 0775 system system
+
+# Tmm Add Start
+    mkdir /data/system/databases 0775 system system
+    mkdir /system/etc/security/.drm 0775 drm system
+    mkdir /system/lib/drm 0775 root root
+    mkdir /data/mmb 0775 system system
+    mkdir /data/mmb/MmbCaCasDrmMw 0700 system sdcard_rw
+    mkdir /data/mmb/MmbFcCtlMw 0700 system sdcard_rw
+    mkdir /data/mmb/MmbFcCtlMw/dic 0700 system sdcard_rw
+    mkdir /data/mmb/MmbStCtlMw 0700 system sdcard_rw
+    mkdir /data/mmb/MmbFcMp4Mw 0700 system sdcard_rw
+    mkdir /data/mmb/common 0770 system sdcard_rw
+    mkdir /data/mmb/common/MmbFcCtlMw 0700 system sdcard_rw
+    mkdir /data/mmb/common/fcctl 0775 system sdcard_rw
+    mkdir /data/mmb/common/streccm 0775 system sdcard_rw
+    mkdir /data/mmb/MmbFcCtlMwMnt 0755 system sdcard_rw
+    mkdir /data/data/.drm 0775 drm system
+    mkdir /data/data/.drm/.playready 0775 drm system
+    mkdir /data/data/.drm/.sec_sctime 0775 system system
+
+    chmod 0770 /data/mmb/common/manifest
+    chown root system /data/mmb/common/manifest
+# Tmm Add End
+
 service mfsc /system/bin/mfsc
     class core
     user root
     group system nfc
     seclabel u:r:mfsc:s0
     oneshot
-
 service mfdp /system/bin/mfdp
     class core
     user root
     group system nfc
     seclabel u:r:mfdp:s0
     oneshot
+
+service mobileTV /system/vendor/bin/broadcastProcessObserver
+    class main
+    user system
+    group system radio audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw sdcard_r shell mmb
+    seclabel u:r:oneseg_mw:s0
+# Tmm Add Start
+service mmbcacasdrmmw /system/vendor/bin/MmbCaCasDrmMw
+    class main
+    socket MmbCaCasDrmMw stream 666
+    user system 
+    group system radio sdcard_r shell inet net_raw media media_rw
+    seclabel u:r:mmb_mw:s0
+service mmbfcctlmw /system/vendor/bin/MmbFcCtlMw
+    class main
+    user system
+    group system log mount sdcard_rw media media_rw sdcard_r shell net_raw camera
+    seclabel u:r:mmb_mw:s0
+service mmbstservice /system/vendor/bin/MmbStCtlMwService
+    class main
+    user system
+    group system radio audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw sdcard_r shell media media_rw
+    seclabel u:r:mmb_mw:s0
+service mmbmp4 /system/vendor/bin/MmbFcMp4MwServer
+    class main
+    user system
+    group system sdcard_r shell media media_rw camera
+    seclabel u:r:mmb_mw:s0
+service mmbfclicemw /system/vendor/bin/MmbFcLiceMwServer
+    class main
+    user system
+    group system sdcard_rw inet media media_rw
+    seclabel u:r:mmb_mw:s0
+service mmbcmservice /system/vendor/bin/MmbStRecCmMwService
+    class late_start
+    user system
+    group system log mount net_raw sdcard_rw sdcard_r shell media media_rw
+    seclabel u:r:mmb_mw:s0
+# Tmm Add End
