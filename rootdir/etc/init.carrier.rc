@@ -15,14 +15,14 @@ on post-fs-data
 
 # Tmm Add Start
     mkdir /data/mmb
-    mkdir /data/mmb/MmbCaCasDrmMw 0700 casdrm sdcard_rw
+    mkdir /data/mmb/MmbCaCasDrmMw 0700 system sdcard_rw
     mkdir /data/mmb/MmbFcCtlMw 0700 system sdcard_rw
     mkdir /data/mmb/MmbFcCtlMw/dic 0700 system sdcard_rw
     mkdir /data/mmb/MmbStCtlMw 0700 system sdcard_rw
     mkdir /data/mmb/MmbFcMp4Mw 0700 system sdcard_rw
     mkdir /data/mmb/common 0770 system sdcard_rw
     mkdir /data/mmb/common/MmbFcCtlMw 0700 system sdcard_rw
-    chown system mmb /data/mmb
+    chown system system /data/mmb
 
     mkdir /data/mmb/common/fcctl 0775 system sdcard_rw
     chown system sdcard_rw /data/mmb/common/fcctl
@@ -41,10 +41,10 @@ on post-fs-data
 
     chmod 664 /dev/hw_random
     chmod 640 /dev/tzic
-    chown system mmb /dev/tzic
+    chown system system /dev/tzic
 
     chmod 0770 /data/mmb/common/manifest
-    chown root mmb /data/mmb/common/manifest
+    chown root system /data/mmb/common/manifest
 # Tmm Add End
 
 service mobileTV /system/vendor/bin/broadcastProcessObserver
@@ -56,32 +56,32 @@ service mobileTV /system/vendor/bin/broadcastProcessObserver
 service mmbcacasdrmmw /system/vendor/bin/MmbCaCasDrmMw
     class main
     socket MmbCaCasDrmMw stream 666
-    user casdrm
-    group mmb system radio sdcard_r shell inet net_raw media media_rw mmbisv
+    user system 
+    group system radio sdcard_r shell inet net_raw media media_rw
     seclabel u:r:mmb_mw:s0
 service mmbfcctlmw /system/vendor/bin/MmbFcCtlMw
     class main
     user system
-    group mmb system log mount sdcard_rw media media_rw sdcard_r shell net_raw mmbisv camera
+    group system log mount sdcard_rw media media_rw sdcard_r shell net_raw camera
     seclabel u:r:mmb_mw:s0
 service mmbstservice /system/vendor/bin/MmbStCtlMwService
     class main
     user system
-    group mmb system radio audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw sdcard_r shell media media_rw mmbisv
+    group system radio audio camera graphics inet net_bt net_bt_admin net_raw sdcard_rw sdcard_r shell media media_rw
     seclabel u:r:mmb_mw:s0
 service mmbmp4 /system/vendor/bin/MmbFcMp4MwServer
     class main
     user system
-    group mmb sdcard_r shell media media_rw mmbisv camera
+    group system sdcard_r shell media media_rw camera
     seclabel u:r:mmb_mw:s0
 service mmbfclicemw /system/vendor/bin/MmbFcLiceMwServer
     class main
     user system
-    group mmb sdcard_rw inet media media_rw mmbisv
+    group system sdcard_rw inet media media_rw
     seclabel u:r:mmb_mw:s0
 service mmbcmservice /system/vendor/bin/MmbStRecCmMwService
     class late_start
     user system
-    group mmb system log mount net_raw sdcard_rw sdcard_r shell media media_rw mmbisv
+    group system log mount net_raw sdcard_rw sdcard_r shell media media_rw
     seclabel u:r:mmb_mw:s0
 # Tmm Add End
