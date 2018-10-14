@@ -104,8 +104,7 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libsecnativefeature \
-    libshim_cutils_atomic
+    libsecnativefeature
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -126,16 +125,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/_hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/_hals.conf
-
-# Oneseg
-PRODUCT_PACKAGES += \
-    libshim_oneseg_video \
-    libshim_oneseg_audio \
-    libshim_oneseg_skia \
-    libshim_oneseg_utils \
-    libshim_oneseg_binder \
-    libshim_oneseg_jpeg \
-    libshim_oneseg_png
 
 # Thermal
 PRODUCT_COPY_FILES += \
