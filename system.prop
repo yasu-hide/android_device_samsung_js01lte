@@ -79,3 +79,6 @@ ro.lineage.build.vendor_security_patch=2016-12-09
 
 # Wifi
 wifi.interface=wlan0
+
+# Bluetooth
+bluetooth.enable_timeout_ms=12000
