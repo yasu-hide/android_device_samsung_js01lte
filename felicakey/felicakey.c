@@ -6,8 +6,8 @@
 #include <cutils/log.h>
 
 #define FELICAKEY_VALUE_MAX 32
-#define PROP_KERNEL_CMDLINE_CORDON "ro.kernel.cmdline.cordon"
-#define PROP_KERNEL_CMDLINE_CONNIE "ro.kernel.cmdline.connie"
+#define PROP_KERNEL_CMDLINE_CORDON "persist.kernel.cmdline.cordon"
+#define PROP_KERNEL_CMDLINE_CONNIE "persist.kernel.cmdline.connie"
 #define HEAD_KERNEL_CMDLINE_CONNIE "SGH-N075_DCM_JPN_"
 
 bool isvalid_felicakey(const char *felicakey, char *key)
