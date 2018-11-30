@@ -33,6 +33,7 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
     # Increase max readahead size to 512 KB
+    restorecon --recursive /sys/block/mmcblk0/queue
     write /sys/block/mmcblk0/queue/read_ahead_kb 512
     write /sys/block/mmcblk0/queue/scheduler noop
 
@@ -465,8 +466,6 @@ on early-boot
     chmod 0660 /dev/ttyHS0
 
 on boot
-    mount debugfs /sys/kernel/debug /sys/kernel/debug
-
     #### init.target.rc
 
 # MUIC
@@ -480,14 +479,6 @@ on boot
 
 # Fingerprint
     mkdir /dev/validity 0775 system system
-
-# SEC DVFS sysfs node
-    chown radio system /sys/power/cpufreq_max_limit
-    chown radio system /sys/power/cpufreq_min_limit
-    chown radio system /sys/power/cpufreq_table
-    chmod 664 /sys/power/cpufreq_max_limit
-    chmod 664 /sys/power/cpufreq_min_limit
-    chmod 664 /sys/power/cpufreq_table
 
     chown radio system /sys/devices/system/cpu/kernel_max
     chmod 664 /sys/devices/system/cpu/kernel_max
